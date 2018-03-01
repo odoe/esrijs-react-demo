@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "plugins": [
+      {
+        "name": "tslint-language-service"
+      }
+    ],
+    "module": "amd",
+    "noImplicitAny": true,
+    "removeComments": true,
+    "jsx": "react",
+    "lib": ["dom", "es2015.promise", "es5", "es6"],
+    "target": "es5",
+    "moduleResolution": "node",
+    "isolatedModules": false,
+    "experimentalDecorators": true,
+    "declaration": false,
+    "noLib": false,
+    "preserveConstEnums": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "strictNullChecks": true
+  },
+  "types": [
+    "arcgis-js-api",
+    "moment"
+  ],
+  "include": [
+    "src/**/*.ts"
+  ],
+  "exclude": [
+    "./node_modules"
+  ]
+}
