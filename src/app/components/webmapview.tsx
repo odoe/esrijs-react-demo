@@ -8,7 +8,7 @@ interface WebMapViewProps {
   onload: (view: MapView) => void;
 };
 
-export class WebMapView extends React.Component<any, {}>{
+export class WebMapView extends React.Component<WebMapViewProps, {}>{
   mapDiv: HTMLDivElement;
 
   componentDidMount() {
