@@ -11,7 +11,6 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const UglifyJSPlugin = require("uglifyjs-webpack-plugin");
 const AppCachePlugin = require("appcache-webpack-plugin-plus").default;
 const ImageminPlugin = require("imagemin-webpack-plugin").default;
-const WebPWebpackPlugin = require("webp-webpack-plugin");
 const workboxPlugin = require("workbox-webpack-plugin");
 const WebpackPwaManifest = require("webpack-pwa-manifest");
 const PrettierPlugin = require("prettier-webpack-plugin");
@@ -48,12 +47,6 @@ module.exports = function(env, options) {
         ignore: ["*.ico", ".gitkeep", ".DS_Store"]
       }
     ]),
-    new PrettierPlugin({
-      semi: true,
-      parser: "scss",
-      encoding: "utf-8",
-      extensions: [".scss"]
-    }),
     new ExtractTextPlugin("app/styles/main.css")
   ];
 
@@ -96,15 +89,6 @@ module.exports = function(env, options) {
     plugins.push(new webpack.HotModuleReplacementPlugin());
   }
   plugins.push(new ImageminPlugin({ test: /\.(jpe?g|png|gif|svg)$/i }));
-  plugins.push(
-    new WebPWebpackPlugin({
-      match: /(jpe?g|png)$/,
-      webp: {
-        quality: 80,
-        inject: true, // inject the default runtime code
-        injectCode: "" // inject your code
-      }
-    })
-  );
+  
   return plugins;
 };
